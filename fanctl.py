@@ -45,6 +45,12 @@ def set_speed(spd):
         file.write(f"{spd}")
 
 
+def read_speed():
+    with open("/sys/devices/pwm-fan/target_pwm", "r") as file:
+        spd = file.read()
+    return int(spd)
+
+
 print("Setup complete.\nRunning normally.")
 last_spd = -1
 while True:
@@ -55,7 +61,9 @@ while True:
         set_speed(spd)
         last_spd = spd
 
-    if spd > 200:
+    current_speed = read_speed()
+
+    if current_speed > 200:
         set_speed(200)
         last_spd = 200
 
