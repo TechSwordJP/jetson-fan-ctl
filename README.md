@@ -21,8 +21,8 @@ Automagic fan control for the Nvidia Jetson Nano
 ```
 ./install.sh
 ```
-
-**▼ 以下、オリジナル**
+<details>
+<summary>以下、オリジナル</summary>
 
 ## Requirements:
 
@@ -97,3 +97,4 @@ Feel Free to open Issues or Pull requests on this Repository.
 If you find this tool useful, you can buy me a coffe:
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://paypal.me/pyrestone)
+</details>
