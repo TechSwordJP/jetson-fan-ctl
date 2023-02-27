@@ -36,7 +36,7 @@ def read_temp():
 
 
 def fan_curve(temp):
-    spd = 200 * (temp - FAN_OFF_TEMP) / (FAN_MAX_TEMP - FAN_OFF_TEMP)
+    spd = 255 * (temp - FAN_OFF_TEMP) / (FAN_MAX_TEMP - FAN_OFF_TEMP)
     return int(min(max(0, spd), 200))
 
 
