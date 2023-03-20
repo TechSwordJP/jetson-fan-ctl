@@ -4,6 +4,8 @@ import time
 import json
 import subprocess as sp
 
+MAX_FAN_SPEED = 220
+
 try:
     with open("/etc/automagic-fan/config.json", "r") as file:
         config = json.load(file)
@@ -37,7 +39,7 @@ def read_temp():
 
 def fan_curve(temp):
     spd = 255 * (temp - FAN_OFF_TEMP) / (FAN_MAX_TEMP - FAN_OFF_TEMP)
-    return int(min(max(0, spd), 200))
+    return int(min(max(0, spd), MAX_FAN_SPEED))
 
 
 def set_speed(spd):
@@ -63,8 +65,8 @@ while True:
 
     current_speed = read_speed()
 
-    if current_speed > 200:
-        set_speed(200)
-        last_spd = 200
+    if current_speed > MAX_FAN_SPEED:
+        set_speed(MAX_FAN_SPEED)
+        last_spd = MAX_FAN_SPEED
 
     time.sleep(UPDATE_INTERVAL)
